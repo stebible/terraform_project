@@ -9,7 +9,7 @@ resource "aws_vpc" "FirstVPC" {
 }
 
 resource "aws_instance" "ec2_demo" {
-  ami = var.my_ami
+  ami = data.aws_ami.my_amiredhat.id
   instance_type = var.instance_type
   user_data = file("${path.module}/app1-install.sh")
   tags = {
@@ -17,3 +17,7 @@ resource "aws_instance" "ec2_demo" {
   }
 }
 
+output "ec2_demo" {
+  description = "ec2 instance Plublic IP"
+  value = aws_instance.ec2_demo.public_ip
+}

@@ -1,8 +1,8 @@
-variable "my_ami" {
+/*variable "my_ami" {
   description = "was ami"
   type = string
   default = "ami-0521a1ab6cb98215d"
-}
+}*/
 
 variable "region" {
   description = "aws region"
