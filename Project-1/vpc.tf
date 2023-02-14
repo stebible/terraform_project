@@ -12,6 +12,8 @@ resource "aws_instance" "ec2_demo" {
   ami = data.aws_ami.my_amiredhat.id
   instance_type = var.instance_type
   user_data = file("${path.module}/app1-install.sh")
+  key_name = var.instance_keypair
+  security_groups = [aws_security_group.web-traffic.name]
   tags = {
     "Name" = "myapp_server"
   }

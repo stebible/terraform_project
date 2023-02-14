@@ -22,3 +22,18 @@ variable "cidr_block" {
   default = "192.168.0.0/24"
 }
 
+variable "instance_keypair" {
+  description = "AWS EC2 Key pair that need to be associated with EC2 Instance"
+  type = string
+  default = "ohio"
+}
+
+variable "ingressrules" {
+  type = list(number)
+  default = [80,443,8080,22]
+}
+
+variable "egressrules" {
+  type = list(number)
+  default = [80,443,25,3306]
+}
