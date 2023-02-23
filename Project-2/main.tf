@@ -29,10 +29,14 @@ resource "aws_subnet" "dev-subenet-1" {
 }
 
 
-output "dev-vpc-id" {
-  value = aws_vpc.development.id
-}
-
+  route {
+    cidr_block = "0.0.0.0/0"
+    gateway_id = aws_internet_gateway.myapp-igw.id
+  }
+  tags = {
+    Name: "${var.env_prefix}-rtb"
+  }
+  
 output "dev-sub-1" {
   value = aws_subnet.dev-subenet-1.id
 }
