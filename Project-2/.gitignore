@@ -7,3 +7,4 @@
 
 # tf variable file 
 *.tfvars
+terrafor.tfvars
